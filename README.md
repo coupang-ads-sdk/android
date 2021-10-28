@@ -1,4 +1,4 @@
-# Coupang-ads-adk Release notes<br>
+# Coupang-ads-sdk Release notes<br>
 
 v1.0.1<br>
 -Initialization method parameter （Application->Context）<br>
