@@ -5,11 +5,17 @@ import com.coupang.ads.CoupangAds
 
 class BannerAdsApplication: Application() {
 
+    companion object {
+        //Use your own affiliate id, sub id.
+        const val AFFILIATE_ID = "AFSDKDEMO"
+        const val SUB_ID = "BannarAdsDemo"
+    }
+
+
     override fun onCreate() {
         super.onCreate()
 
-        //Use your own affiliate id, sub id, and widget id.
-        CoupangAds.init(context = this, "AFSDKDEMO", "BannarAdsDemo")
+        CoupangAds.init(context = this, AFFILIATE_ID, SUB_ID)
     }
 
 }

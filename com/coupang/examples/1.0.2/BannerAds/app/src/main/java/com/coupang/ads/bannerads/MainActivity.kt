@@ -9,6 +9,11 @@ import com.coupang.ads.view.banner.AdsBannerView
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        //Use your own widget id.
+        val WIDGET_ID: Long = 514017
+    }
+
     val affiliatePage = "Home Page"  // optional，name of the app page.
     val affiliatePlacement = "Bottom Banner"  // optional, location of the ad.
 
@@ -31,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             })
-            it.loadAdData(514017, affiliatePage, affiliatePlacement)
+            it.loadAdData(WIDGET_ID, affiliatePage, affiliatePlacement)
         }
     }
 }
