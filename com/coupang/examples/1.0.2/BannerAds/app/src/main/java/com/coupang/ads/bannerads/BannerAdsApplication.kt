@@ -1,4 +1,4 @@
-package com.coupang.ads.demo
+package com.coupang.ads.bannerads
 
 import android.app.Application
 import com.coupang.ads.CoupangAds
