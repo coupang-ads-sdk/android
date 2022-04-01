@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Coupang Banner Ads 300x50"
+            android:text="Coupang Banner Ads 320x50"
             app:layout_constraintBottom_toTopOf="@id/ads_banner_view"
             app:layout_constraintLeft_toLeftOf="parent" />
 
