@@ -75,6 +75,13 @@ public class MainActivityJava extends AppCompatActivity {
 		// Configure a listener for interstitial
 		interstitial.setListener(new AdsInterstitialListener() {
 			@Override
+			public void onAdDismissed() {
+				Log.i("interstitial", "onAdDismissed");
+				// Call loadAdData() to refresh the ads to be displayed next time. Otherwise, the same ad will be displayed when interstitial.showAds(this) is called again.
+				interstitialViewModelLazy.getValue().loadAdData();
+			}
+
+			@Override
 			public void onAdShowed() {
 				Log.i("interstitial", "onAdShowed");
 			}
@@ -83,13 +90,6 @@ public class MainActivityJava extends AppCompatActivity {
 			public void onAdFailedToShow(@NotNull AdsException e) {
 				Log.e("interstitial", "onAdFailedToShow", e);
 
-			}
-
-			@Override
-			public void onAdDismissed() {
-				Log.i("interstitial", "onAdDismissed");
-				// interstitial has been dismiss, load next time show AD data.
-				interstitialViewModelLazy.getValue().loadAdData();
 			}
 
 			@Override

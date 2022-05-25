@@ -61,7 +61,7 @@ class MainActivityKotlin : AppCompatActivity() {
         interstitial.listener = object : AdsInterstitialListener {
             override fun onAdDismissed() {
                 Log.i("interstitial", "onAdDismissed")
-                // interstitial has been dismiss, load next time show AD data.
+                // Call loadAdData() to refresh the ads to be displayed next time. Otherwise, the same ad will be displayed when interstitial.showAds(this) is called again.
                 interstitialViewModel.loadAdData()
             }
 
