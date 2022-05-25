@@ -94,6 +94,7 @@ public class MainActivityJava extends AppCompatActivity {
 
 			@Override
 			public boolean onClick(@NotNull AdsViewType adsViewType) {
+				// it should always return false.
 				return false;
 			}
 		});
