@@ -11,7 +11,7 @@ import com.coupang.ads.tools.createAdsViewModel
 import com.coupang.ads.view.banner.AdsBannerView
 import com.coupang.ads.viewmodels.AdsViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivityKotlin : AppCompatActivity() {
 
     /**
      * Generate AdsViewModel in lazy way, you can also use createAdsViewModel directly to generate AdsViewModel immediately
