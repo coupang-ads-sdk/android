@@ -30,13 +30,13 @@ public class MainActivityJava extends AppCompatActivity {
 	 * Generate AdsViewModel in lazy way, you can also use createAdsViewModel directly to generate AdsViewModel immediately
 	 * like:
 	 * private AdsViewModel interstitialViewModel = ViewModelExtensionsKt.createAdsViewModelJava(
-	 * this,
-	 * AdsViewModel.class,
-	 * "514017", //Use your own widget id.
-	 * AdsCreativeSize.INTERSTITIAL,
-	 * AdsMode.AUTO,
-	 * "Home Page",  // optional，name of the app page.
-	 * "Interstitial"  // optional, location of the ad.
+	 *     this,
+	 *     AdsViewModel.class,
+	 *     "514017", //Use your own widget id.
+	 *     AdsCreativeSize.INTERSTITIAL,
+	 *     AdsMode.AUTO,
+	 *     "Home Page",  // optional，name of the app page.
+	 *     "Interstitial"  // optional, location of the ad.
 	 * );
 	 */
 	private final Lazy<AdsViewModel> interstitialViewModelLazy = ViewModelExtensionsKt.adsViewModelsLazyJava(
