@@ -77,7 +77,10 @@ public class MainActivityJava extends AppCompatActivity {
 			@Override
 			public void onAdDismissed() {
 				Log.i("interstitial", "onAdDismissed");
-				// Call loadAdData() to refresh the ads to be displayed next time. Otherwise, the same ad will be displayed when interstitial.showAds(this) is called again.
+				/*
+				 * Call loadAdData() to pre-load the ads to be displayed next time. Without this, the same ad will be displayed when showAds() is called again with the same interstitial instance.
+				 * Note: If your app won’t call showAds() again with the same instance, you should not call loadAdData() here though.
+				 */
 				interstitialViewModelLazy.getValue().loadAdData();
 			}
 
@@ -89,7 +92,6 @@ public class MainActivityJava extends AppCompatActivity {
 			@Override
 			public void onAdFailedToShow(@NotNull AdsException e) {
 				Log.e("interstitial", "onAdFailedToShow", e);
-
 			}
 
 			@Override
