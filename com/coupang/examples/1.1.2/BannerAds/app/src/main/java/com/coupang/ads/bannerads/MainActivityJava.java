@@ -2,6 +2,7 @@ package com.coupang.ads.bannerads;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,8 +53,10 @@ public class MainActivityJava extends AppCompatActivity {
 			Result<?> r = new Result<>(result);
 			if (r.isSuccess()) {
 				Log.i("bannerObserver", "banner ads download success");
+				Toast.makeText(this, "banner ads download success", Toast.LENGTH_SHORT).show();
 			} else {
 				Log.i("bannerObserver", "banner ads download failed", r.exceptionOrNull());
+				Toast.makeText(this, "banner ads download failed", Toast.LENGTH_SHORT).show();
 			}
 		});
 		// Call the loadAdData function to download the AD data.

@@ -3,6 +3,7 @@ package com.coupang.ads.bannerads
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.coupang.ads.config.AdsCreativeSize
 import com.coupang.ads.config.AdsMode
@@ -40,8 +41,10 @@ class MainActivityKotlin : AppCompatActivity() {
         bannerViewModel.observe(this) {
             if (it.isSuccess) {
                 Log.i("bannerObserver", "banner ads download success")
+                Toast.makeText(this, "banner ads download success", Toast.LENGTH_SHORT).show()
             } else {
                 Log.i("bannerObserver", "banner ads download failed", it.exceptionOrNull())
+                Toast.makeText(this, "banner ads download failed", Toast.LENGTH_SHORT).show()
             }
         }
         // Call the loadAdData function to download the AD data.
