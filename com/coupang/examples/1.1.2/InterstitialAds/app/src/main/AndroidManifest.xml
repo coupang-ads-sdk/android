@@ -8,7 +8,7 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/Theme.Interstitial">
-        <activity android:name=".MainActivityKotlin"
+        <activity android:name=".MainActivityJava"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -50,6 +50,7 @@ class MainActivityKotlin : AppCompatActivity() {
         interstitialViewModel.observe(this) {
             if (it.isSuccess) {
                 Log.i("interstitialObserver", "interstitial ads download success")
+                Toast.makeText(this, "interstitial ads download success", Toast.LENGTH_SHORT).show()
             } else {
                 Log.i("interstitialObserver", "interstitial ads download failed", it.exceptionOrNull())
                 Toast.makeText(this, "interstitial ads download failed", Toast.LENGTH_SHORT).show()

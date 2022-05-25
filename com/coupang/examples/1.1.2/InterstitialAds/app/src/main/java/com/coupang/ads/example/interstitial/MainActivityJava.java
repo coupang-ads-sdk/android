@@ -65,6 +65,7 @@ public class MainActivityJava extends AppCompatActivity {
 			Result<?> r = new Result<>(result);
 			if (r.isSuccess()) {
 				Log.i("interstitialObserver", "interstitial ads download success");
+				Toast.makeText(this, "interstitial ads download success", Toast.LENGTH_SHORT).show();
 			} else {
 				Log.i("interstitialObserver", "interstitial ads download failed", r.exceptionOrNull());
 				Toast.makeText(this, "interstitial ads download failed", Toast.LENGTH_SHORT).show();
