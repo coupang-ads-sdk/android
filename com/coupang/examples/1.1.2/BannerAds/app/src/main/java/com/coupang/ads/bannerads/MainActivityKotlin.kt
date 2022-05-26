@@ -17,13 +17,16 @@ class MainActivityKotlin : AppCompatActivity() {
     /**
      * Generate AdsViewModel in lazy way, you can also use createAdsViewModel directly to generate AdsViewModel immediately
      * like:
-     *  private val bannerViewModel = createAdsViewModel<AdsViewModel>(
-     *       "514017", //Use your own widget id.
-     *       AdsCreativeSize._320x50,
-     *       AdsMode.AUTO,
-     *       "Home Page",  // optional，name of the app page.
-     *       "Bottom Banner"  // optional, location of the ad.
-     *  )
+     * override fun onCreate(savedInstanceState: Bundle?) {
+     *      super.onCreate(savedInstanceState)
+     *      val bannerViewModel = createAdsViewModel<AdsViewModel>(
+     *          "514017", //Use your own widget id.
+     *          AdsCreativeSize._320x50,
+     *          AdsMode.AUTO,
+     *          "Home Page",  // optional，name of the app page.
+     *          "Bottom Banner"  // optional, location of the ad.
+     *      )
+     *  }
      */
     private val bannerViewModel: AdsViewModel by adsViewModels(
         "514017", //Use your own widget id.

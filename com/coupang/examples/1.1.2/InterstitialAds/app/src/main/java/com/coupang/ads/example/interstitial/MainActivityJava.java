@@ -29,15 +29,19 @@ public class MainActivityJava extends AppCompatActivity {
 	/**
 	 * Generate AdsViewModel in lazy way, you can also use createAdsViewModel directly to generate AdsViewModel immediately
 	 * like:
-	 * private AdsViewModel interstitialViewModel = ViewModelExtensionsKt.createAdsViewModelJava(
-	 *     this,
-	 *     AdsViewModel.class,
-	 *     "514017", //Use your own widget id.
-	 *     AdsCreativeSize.INTERSTITIAL,
-	 *     AdsMode.AUTO,
-	 *     "Home Page",  // optional，name of the app page.
-	 *     "Interstitial"  // optional, location of the ad.
-	 * );
+	 * 	@Override
+	 * 	protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+	 *		super.onCreate(savedInstanceState);
+	 * 		AdsViewModel interstitialViewModel = ViewModelExtensionsKt.createAdsViewModelJava(
+	 *      	this,
+	 *     		AdsViewModel.class,
+	 *     		"514017", //Use your own widget id.
+	 *     		AdsCreativeSize.INTERSTITIAL,
+	 *     		AdsMode.AUTO,
+	 *     		"Home Page",  // optional，name of the app page.
+	 *     		"Interstitial"  // optional, location of the ad.
+	 * 		);
+	 * 	}
 	 */
 	private final Lazy<AdsViewModel> interstitialViewModelLazy = ViewModelExtensionsKt.adsViewModelsLazyJava(
 			this,
@@ -62,7 +66,9 @@ public class MainActivityJava extends AppCompatActivity {
 
 		// Create an observer for the AdsViewModel to monitor the download of AD data.
 		interstitialViewModelLazy.getValue().observe(this, result -> {
-			Result<?> r = new Result<>(result);
+			// Use Kotlin code KtUtilsKt.getResult() instead of `result` object
+			// This because there is an issue with kotlin inline class. We will support no kotlin code API in future.
+			Result<?> r = KtUtilsKt.getResult(interstitialViewModelLazy.getValue().getDataResult());
 			if (r.isSuccess()) {
 				Log.i("interstitialObserver", "interstitial ads download success");
 				Toast.makeText(this, "interstitial ads download success", Toast.LENGTH_SHORT).show();
