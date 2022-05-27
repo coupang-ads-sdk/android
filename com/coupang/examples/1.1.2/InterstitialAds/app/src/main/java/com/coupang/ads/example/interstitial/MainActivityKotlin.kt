@@ -15,20 +15,7 @@ import com.coupang.ads.viewmodels.AdsViewModel
 
 class MainActivityKotlin : AppCompatActivity() {
 
-    /**
-     * Generate AdsViewModel in lazy way, you can also use createAdsViewModel directly to generate AdsViewModel immediately
-     * like:
-     *  override fun onCreate(savedInstanceState: Bundle?) {
-     *      super.onCreate(savedInstanceState)
-     *      val interstitialViewModel = createAdsViewModel<AdsViewModel>(
-     *          "514017", //Use your own widget id.
-     *          AdsCreativeSize.INTERSTITIAL,
-     *          AdsMode.AUTO,
-     *          "Home Page",  // optional，name of the app page.
-     *          "Interstitial"  // optional, location of the ad.
-     *      )
-     *  }
-     */
+    // Generate AdsViewModel in lazy way
     private val interstitialViewModel: AdsViewModel by adsViewModels(
         "514017", //Use your own widget id.
         AdsCreativeSize.INTERSTITIAL,
