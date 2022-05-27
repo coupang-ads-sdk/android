@@ -14,31 +14,18 @@ import com.coupang.ads.viewmodels.AdsViewModel
 
 class MainActivityKotlin : AppCompatActivity() {
 
-    /**
-     * Generate AdsViewModel in lazy way, you can also use createAdsViewModel directly to generate AdsViewModel immediately
-     * like:
-     * override fun onCreate(savedInstanceState: Bundle?) {
-     *      super.onCreate(savedInstanceState)
-     *      val bannerViewModel = createAdsViewModel<AdsViewModel>(
-     *          "514017", //Use your own widget id.
-     *          AdsCreativeSize._320x50,
-     *          AdsMode.AUTO,
-     *          "Home Page",  // optional，name of the app page.
-     *          "Bottom Banner"  // optional, location of the ad.
-     *      )
-     *  }
-     */
-    private val bannerViewModel: AdsViewModel by adsViewModels(
-        "514017", //Use your own widget id.
-        AdsCreativeSize._320x50,
-        AdsMode.AUTO,
-        "Home Page",  // optional，name of the app page.
-        "Bottom Banner"  // optional, location of the ad.
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // create AdsViewModel instance
+        val bannerViewModel = createAdsViewModel<AdsViewModel>(
+            "514017", //Use your own widget id.
+            AdsCreativeSize._320x50,
+            AdsMode.AUTO,
+            "Home Page",  // optional，name of the app page.
+            "Bottom Banner"  // optional, location of the ad.
+        )
 
         // Create an observer for the AdsViewModel to monitor the download of AD data.
         bannerViewModel.observe(this) {
