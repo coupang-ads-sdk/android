@@ -33,7 +33,7 @@ public class MainActivityJava extends AppCompatActivity {
 		);
 
 		// Create an observer for the AdsViewModel to monitor the download of AD data.
-		bannerViewModel.observe(this, r -> {
+		bannerViewModel.observeJava(this, r -> {
 			if (r.isSuccess()) {
 				Log.i("bannerObserver", "banner ads download success");
 				Toast.makeText(this, "banner ads download success", Toast.LENGTH_SHORT).show();
