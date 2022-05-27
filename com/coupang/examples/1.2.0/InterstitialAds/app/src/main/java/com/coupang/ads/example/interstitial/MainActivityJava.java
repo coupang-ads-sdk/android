@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.coupang.ads.AdsException;
 import com.coupang.ads.config.AdsCreativeSize;
 import com.coupang.ads.config.AdsMode;
+import com.coupang.ads.config.AdsViewType;
 import com.coupang.ads.interstitial.AdsInterstitial;
 import com.coupang.ads.interstitial.AdsInterstitialListener;
-import com.coupang.ads.interstitial.AdsViewType;
 import com.coupang.ads.tools.ViewModelExtensionsKt;
 import com.coupang.ads.viewmodels.AdsViewModel;
 
