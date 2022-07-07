@@ -12,24 +12,22 @@ import com.coupang.ads.config.AdsMode;
 import com.coupang.ads.config.AdsViewType;
 import com.coupang.ads.interstitial.AdsInterstitial;
 import com.coupang.ads.interstitial.AdsInterstitialListener;
-import com.coupang.ads.tools.ViewModelExtensionsKt;
+import com.coupang.ads.viewmodels.AdsRequest;
 import com.coupang.ads.viewmodels.AdsViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
-import kotlin.Lazy;
-
 public class MainFragmentActivityJava extends AppCompatActivity {
 
-	// Generate AdsViewModel in lazy way
-	private final Lazy<AdsViewModel> interstitialViewModelLazy = ViewModelExtensionsKt.adsViewModelsLazyJava(
-			this,
-			AdsViewModel.class,
-			"514017", //Use your own widget id.
-			AdsCreativeSize.INTERSTITIAL,
-			AdsMode.AUTO,
-			"Home Page",  // optional，name of the app page.
-			"Interstitial"  // optional, location of the ad.
+	// crete AdsViewModel
+	private final AdsViewModel interstitialViewModel = new AdsViewModel(
+			new AdsRequest(
+					"514017", //Use your own widget id.
+					AdsCreativeSize.INTERSTITIAL,
+					AdsMode.AUTO,
+					"Home Page",  // optional，name of the app page.
+					"Interstitial"  // optional, location of the ad.
+			)
 	);
 
 	// Create Interstitial object.
@@ -41,7 +39,7 @@ public class MainFragmentActivityJava extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 
 		// Create an observer for the AdsViewModel to monitor the download of AD data.
-		interstitialViewModelLazy.getValue().observeJava(this, r -> {
+		interstitialViewModel.observeJava(this, r -> {
 			if (r.isSuccess()) {
 				Log.i("interstitialObserver", "interstitial ads download success");
 				Toast.makeText(this, "interstitial ads download success", Toast.LENGTH_SHORT).show();
@@ -60,7 +58,7 @@ public class MainFragmentActivityJava extends AppCompatActivity {
 				 * Call loadAdData() to pre-load the ads to be displayed next time. Without this, the same ad will be displayed when showAds() is called again with the same interstitial instance.
 				 * Note: If your app won’t call showAds() again with the same instance, you should not call loadAdData() here though.
 				 */
-				interstitialViewModelLazy.getValue().loadAdData();
+				interstitialViewModel.loadAdData();
 			}
 
 			@Override
@@ -81,8 +79,8 @@ public class MainFragmentActivityJava extends AppCompatActivity {
 		});
 
 		// Bind AdsViewModel to Interstitial.
-		interstitial.bindViewModel(interstitialViewModelLazy.getValue());
-		interstitialViewModelLazy.getValue().loadAdData();
+		interstitial.bindViewModel(interstitialViewModel);
+		interstitialViewModel.loadAdData();
 
 		// Show Interstitial when needed.
 		Button showInterstitialButton = findViewById(R.id.interstitial);

@@ -1,27 +1,27 @@
 package com.coupang.ads.example.interstitial
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.coupang.ads.AdsException
 import com.coupang.ads.config.AdsCreativeSize
 import com.coupang.ads.config.AdsMode
 import com.coupang.ads.interstitial.AdsInterstitial
 import com.coupang.ads.interstitial.AdsInterstitialListener
-import com.coupang.ads.tools.adsViewModels
+import com.coupang.ads.viewmodels.AdsRequest
 import com.coupang.ads.viewmodels.AdsViewModel
 
 class MainActivityKotlin : AppCompatActivity() {
 
-    // Generate AdsViewModel in lazy way
-    private val interstitialViewModel: AdsViewModel by adsViewModels(
-        "514017", //Use your own widget id.
-        AdsCreativeSize.INTERSTITIAL,
-        AdsMode.AUTO,
-        "Home Page",  // optional，name of the app page.
-        "Interstitial"  // optional, location of the ad.
+    // create AdsViewModel
+    private val interstitialViewModel = AdsViewModel(
+        AdsRequest(
+            "514017", AdsCreativeSize.INTERSTITIAL, AdsMode.AUTO,
+            "Home Page",  // optional，name of the app page.
+            "Interstitial" // optional, location of the ad.
+        )
     )
 
     /**
