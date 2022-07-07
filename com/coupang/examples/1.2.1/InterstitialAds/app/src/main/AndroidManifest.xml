@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.coupang.ads.example.interstitial">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.Interstitial">
+        <activity android:name=".MainActivityKotlin"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LegacyActivityJava" />
+
+        <meta-data android:name="coupang_ads_affiliate_id"
+                android:value="AFSDKDEMO"/>
+
+        <meta-data android:name="coupang_ads_sub_id"
+                android:value="InterstitialDemo"/>
+    </application>
+
+</manifest>
