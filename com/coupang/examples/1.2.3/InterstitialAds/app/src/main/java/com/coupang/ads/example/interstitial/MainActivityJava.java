@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.coupang.ads.AdsContext;
 import com.coupang.ads.AdsException;
 import com.coupang.ads.config.AdsCreativeSize;
 import com.coupang.ads.config.AdsMode;
@@ -27,7 +29,7 @@ public class MainActivityJava extends AppCompatActivity {
 					AdsMode.AUTO,
 					"Home Page",  // optional，name of the app page.
 					"Interstitial",  // optional, location of the ad.
-					"puid@mail.com" // optional, user's puid.
+					AdsContext.Companion.generateAnonId() // optional, user's puid, e.g. "puid@mail.com".
 			)
 	);
 
