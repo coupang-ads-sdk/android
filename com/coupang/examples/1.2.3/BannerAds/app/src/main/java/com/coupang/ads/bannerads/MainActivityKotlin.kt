@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import com.coupang.ads.AdsContext
 import com.coupang.ads.config.AdsCreativeSize
 import com.coupang.ads.config.AdsMode
 import com.coupang.ads.tools.adsViewModels
@@ -25,7 +26,7 @@ class MainActivityKotlin : AppCompatActivity() {
             AdsMode.AUTO,
             "Home Page",  // optional，name of the app page.
             "Bottom Banner",  // optional, location of the ad.
-            "puid@mail.com" // optional, user's puid.
+            AdsContext.generateAnonId() // optional, user's puid, e.g. "puid@mail.com".
         )
 
         // Create an observer for the AdsViewModel to monitor the download of AD data.

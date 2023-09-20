@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
+import com.coupang.ads.AdsContext;
 import com.coupang.ads.AdsException;
 import com.coupang.ads.config.AdsCreativeSize;
 import com.coupang.ads.config.AdsMode;
@@ -33,7 +34,7 @@ public class LegacyActivityJava extends Activity implements LifecycleOwner {
 					AdsMode.AUTO,
 					"Home Page",  // optional，name of the app page.
 					"Interstitial",  // optional, location of the ad.
-					"puid@mail.com" // optional, user's puid.
+					AdsContext.Companion.generateAnonId() // optional, user's puid, e.g. "puid@mail.com".
 			)
 	);
 

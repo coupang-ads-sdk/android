@@ -16,7 +16,7 @@ buildscript {
 
 allprojects {
 	repositories {
-		maven { url "https://raw.fastgit.org/coupang-ads-sdk/android/main" }
+		maven { url "https://raw.githubusercontent.com/coupang-ads-sdk/android/main" }
 		google()
 		mavenCentral()
 	}
