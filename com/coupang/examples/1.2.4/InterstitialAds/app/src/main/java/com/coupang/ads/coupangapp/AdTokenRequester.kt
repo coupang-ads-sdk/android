@@ -50,6 +50,11 @@ class AdTokenRequester(
         Executors.newSingleThreadExecutor()
     }
 
+    /**
+     * Get the ad token from the coupang app
+     * This method blocks until it either timeout or gets the token
+     * If the token in memory has not expired, it will get the token after a maximum of 200ms of trying to obtain the token.
+     */
     @WorkerThread
     fun getAdToken(): Result<TokenResponse> {
         return (tokenResponse?.takeIf { it.isUnexpired() }?.let {
