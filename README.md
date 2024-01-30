@@ -23,6 +23,14 @@ v1.1.1 <br>
 v1.1.2 <br>
 -Known bugs fix <br>
 
+v1.2.4 <br>
+-Known bugs fix <br>
+-Support android.app.activity as Context <br>
+-Reduces some dependent library versions and improves SDK compatibility <br>
+-Provides Java implementations for some interfaces <br>
+-Support passing the puid parameter to get targeted ads <br>
+
+
 ##ads-log-plugin
 
 v1.0.0 <br>
