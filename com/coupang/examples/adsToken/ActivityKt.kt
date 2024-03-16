@@ -10,7 +10,7 @@ class ActivityKt : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        AdTokenRequester(this).asyncGetAdToken {
+        AdTokenRequester(this).getAdTokenInCallback {
             val token = it.getOrNull()?.token
             val exception = it.exceptionOrNull()
             if (!token.isNullOrBlank()) {

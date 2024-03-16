@@ -16,7 +16,7 @@ public class ActivityJava extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		AdTokenRequester requester = new AdTokenRequester(this);
-		requester.asyncGetAdToken(adTokenResponseResult -> {
+		requester.getAdTokenInCallback(null, adTokenResponseResult -> {
 			AdTokenResponse adTokenResponse = adTokenResponseResult.getOrNull();
 			String token = adTokenResponse == null ? null : adTokenResponse.getToken();
 			Throwable exception = adTokenResponseResult.exceptionOrNull();
