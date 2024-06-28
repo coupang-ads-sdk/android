@@ -11,9 +11,9 @@ import com.coupang.ads.AdsContext;
 import com.coupang.ads.config.AdsCreativeSize;
 import com.coupang.ads.config.AdsMode;
 import com.coupang.ads.tools.ViewModelExtensionsKt;
-import com.coupang.ads.custom.AdsNativeView
-import com.coupang.ads.custom.AdsPlacementLayout
-import com.coupang.ads.custom.AdsProductLayout
+import com.coupang.ads.custom.AdsNativeView;
+import com.coupang.ads.custom.AdsPlacementLayout;
+import com.coupang.ads.custom.AdsProductLayout;
 import com.coupang.ads.viewmodels.AdsViewModel;
 
 import javax.swing.text.html.ImageView;
@@ -34,18 +34,18 @@ public class MainActivityJava extends AppCompatActivity {
 				AdsCreativeSize.NATIVE,
 				AdsMode.AUTO,
 				"Home Page",  // optional，name of the app page.
-				"Bottom Banner",  // optional, location of the ad.
+				"Native Ads",  // optional, location of the ad.
 				AdsContext.Companion.generateAnonId() // optional, user's puid, e.g. "puid@mail.com".
 		);
 
 		// Create an observer for the AdsViewModel to monitor the download of AD data.
 		nativeViewModel.observeJava(this, r -> {
 			if (r.isSuccess()) {
-				Log.i("bannerObserver", "banner ads download success");
-				Toast.makeText(this, "banner ads download success", Toast.LENGTH_SHORT).show();
+				Log.i("nativeObserver", "native ads download success");
+				Toast.makeText(this, "native ads download success", Toast.LENGTH_SHORT).show();
 			} else {
-				Log.i("bannerObserver", "banner ads download failed", r.exceptionOrNull());
-				Toast.makeText(this, "banner ads download failed", Toast.LENGTH_SHORT).show();
+				Log.i("nativeObserver", "native ads download failed", r.exceptionOrNull());
+				Toast.makeText(this, "native ads download failed", Toast.LENGTH_SHORT).show();
 			}
 		});
 		// Call the loadAdData function to download the AD data.
@@ -74,7 +74,7 @@ public class MainActivityJava extends AppCompatActivity {
 						.build())
 				.build();
 
-		// Bind AdsViewModel to Banner View.
+		// Bind AdsViewModel to Native View.
 		nativeView.bindViewModel(this, nativeViewModel);
 	}
 }
