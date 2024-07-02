@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Coupang Native Ads"
-            app:layout_constraintBottom_toTopOf="@id/ads_banner_view"
+            app:layout_constraintBottom_toTopOf="@id/ads_native_view"
             app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
