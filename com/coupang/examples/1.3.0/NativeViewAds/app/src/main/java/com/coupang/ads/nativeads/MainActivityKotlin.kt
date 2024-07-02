@@ -3,16 +3,19 @@ package com.coupang.ads.nativeads
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import com.coupang.ads.AdsContext
 import com.coupang.ads.config.AdsCreativeSize
 import com.coupang.ads.config.AdsMode
-import com.coupang.ads.tools.adsViewModels
 import com.coupang.ads.tools.createAdsViewModel
 import com.coupang.ads.custom.AdsNativeView
 import com.coupang.ads.custom.AdsPlacementLayout
 import com.coupang.ads.custom.AdsProductLayout
+import com.coupang.ads.custom.widget.AdsProductStarRating
+import com.coupang.ads.nativeViewAds.R
 import com.coupang.ads.viewmodels.AdsViewModel
 
 class MainActivityKotlin : AppCompatActivity() {
@@ -24,7 +27,7 @@ class MainActivityKotlin : AppCompatActivity() {
         // create AdsViewModel instance
         val nativeViewModel = createAdsViewModel<AdsViewModel>(
             "514017", //Use your own widget id.
-            AdsCreativeSize._320x50,
+            AdsCreativeSize.NATIVE,
             AdsMode.AUTO,
             "Home Page",  // optional，name of the app page.
             "Native Ads",  // optional, location of the ad.
@@ -55,7 +58,7 @@ class MainActivityKotlin : AppCompatActivity() {
         val callToAction = findViewById<View>(R.id.call_to_action)
         val price = findViewById<TextView>(R.id.price)
 
-        adsNativeView.adsPlacementLayout = AdsPlacementLayout.Builder()
+        nativeView.adsPlacementLayout = AdsPlacementLayout.Builder()
             .setLogoView(logo)
             .setAdsInfoView(adsInfo)
             .setProductLayout(AdsProductLayout.Builder()
